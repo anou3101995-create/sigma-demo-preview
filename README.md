@@ -6,7 +6,7 @@ This is the repository’s only demo. The root URL redirects to `/2026/`. All re
 
 ## Build and publish
 
-The application is built from the `agent/ui/preview` branch of `anou3101995-create/sigma-pharma-system` with its supplied preview Vite config:
+The application is built from the current UI-review source branch, `staging/ui-review-2026-11-16`, of `anou3101995-create/sigma-pharma-system` with its supplied preview Vite config. The Stock IN on-demand toggle in the current demo was built from source commit `51bf297` (`feat: reveal stock intake form on demand`). The build is static; keep `2026/mock.js` as the demo-only API shim and never connect this public page to live services.
 
 ```sh
 npm ci
