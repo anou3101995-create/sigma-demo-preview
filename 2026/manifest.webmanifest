@@ -4,16 +4,16 @@
   "short_name": "Sigma Pharma",
   "description": "ລະບົບຈັດການ Sigma Pharma",
   "lang": "lo",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/sigma-demo-preview/2026/",
+  "scope": "/sigma-demo-preview/2026/",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
   "orientation": "any",
   "background_color": "#0a0e1a",
   "theme_color": "#0a0e1a",
   "icons": [
-    { "src": "/icons/sigma-app-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/sigma-app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/icons/sigma-app.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/sigma-demo-preview/2026/icons/sigma-app-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/sigma-demo-preview/2026/icons/sigma-app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/sigma-demo-preview/2026/icons/sigma-app.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }

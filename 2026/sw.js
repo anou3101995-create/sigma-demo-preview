@@ -1,6 +1,6 @@
 const CACHE_PREFIX = 'sigma-app-shell-';
 const CACHE_NAME = `${CACHE_PREFIX}v1`;
-const APP_SHELL = '/';
+const APP_SHELL = '/sigma-demo-preview/2026/';
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
@@ -12,10 +12,10 @@ self.addEventListener('install', event => {
     const assetPaths = [
       ...[...html.matchAll(/(?:src|href)=["'](\/assets\/[^"']+)["']/g)].map(match => match[1]),
       '/manifest.webmanifest',
-      '/icons/sigma-app.svg',
-      '/icons/sigma-app-192.png',
-      '/icons/sigma-app-512.png',
-      '/icons/apple-touch-icon.png',
+      '/sigma-demo-preview/2026/icons/sigma-app.svg',
+      '/sigma-demo-preview/2026/icons/sigma-app-192.png',
+      '/sigma-demo-preview/2026/icons/sigma-app-512.png',
+      '/sigma-demo-preview/2026/icons/apple-touch-icon.png',
     ];
     await Promise.all(assetPaths.map(async path => {
       try {
@@ -64,7 +64,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/icons/')) {
+  if (url.pathname.startsWith('/sigma-demo-preview/2026/assets/') || url.pathname.startsWith('/sigma-demo-preview/2026/icons/')) {
     event.respondWith((async () => {
       const cached = await caches.match(request);
       if (cached) return cached;
