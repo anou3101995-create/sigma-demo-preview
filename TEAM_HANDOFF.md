@@ -4,45 +4,47 @@ Updated: 2026-11-25
 
 ## Current state
 
-The public GitHub Pages demo is live at:
+Public GitHub Pages demo:
 
 https://anou3101995-create.github.io/sigma-demo-preview/2026/
 
-Latest public-demo commit: `6ecccf93b5610a1407f7db128a5f9b005be77a35`
+Latest correction commit: `7b74e3a8ccc74ad8ba9a3609e4b481bd9a3783b3`
 
-The selected source UI was built from `feat/professional-sales-portal @ a348159753a9d3208023a88bd44309cc7cf0b0c1`. The preceding Pages deployment for the Sales Portal was successful; this Contact Admin/payment-settings change is the next public-demo update.
+The Sales Portal source build remains from `feat/professional-sales-portal @ a348159753a9d3208023a88bd44309cc7cf0b0c1`.
 
-## Completed in this update
+## Important correction
 
-- Added a visible `WhatsApp Contact Admin` button.
-- Added the Lao contact message:
-  > ສະບາຍດີ ຫາກທ່ານມີຄຳຖາມ ສາມາດຕິດຕໍ່ຜູ້ດູແລລະບົບໄດ້ເລີຍ.
-- Added `ຕັ້ງຄ່າຮັບເງິນ` with fields for company phone, WhatsApp Contact Admin, bank name, account name, account number, and Contact Admin message.
-- Settings are demo-only and persist in browser `localStorage`; no real payment processing is implemented.
-- If WhatsApp is blank, the demo asks the operator to configure it before opening WhatsApp.
-- The demo explicitly warns `DEMO ONLY`; it does not connect to a bank, payment provider, Workers, D1, or production API.
+The application already has the correct company-settings entry on the `Preview Super Admin — Super Admin` page:
 
-## Still required from the manager
+- Existing menu/card: `ຕັ້ງຄ່າບັນຊີບໍລິສັດ`
+- Existing page heading: `ຕັ້ງຄ່າຂໍ້ມູນການຮັບເງິນຂອງບໍລິສັດ`
+- Existing fields: company name, BCEL One bank account, company address, company phone, QR upload, and Save Settings
+- Existing customer-preview payment section includes `PREVIEW ONLY - NO PAYMENT`
 
-Do not invent or hard-code real payment details. Before entering company data, obtain and verify:
+A previous update incorrectly added duplicate floating `ຕັ້ງຄ່າຮັບເງິນ` and `WhatsApp Contact Admin` controls. Those duplicate controls were removed in commit `7b74e3a`. Do not add another floating settings panel or duplicate icon.
 
-1. Company contact phone.
-2. WhatsApp Contact Admin number in international format, such as `85620xxxxxxx`.
-3. Bank name.
-4. Company account name.
-5. Company account number.
-6. Approved QR receiving image or QR data, if the manager wants it shown.
+## Current safety boundary
 
-## Acceptance checks for the next AI/team member
+- Keep payment details in the existing Super Admin company-settings page.
+- Do not invent or hard-code real company payment data.
+- Do not connect to a bank, payment provider, Workers, D1, or production API.
+- Keep the customer payment preview marked `PREVIEW ONLY - NO PAYMENT`.
+- Do not touch private source `main`/`staging`, Cloudflare Workers, D1, real customer data, or payment systems without separate authorization.
+- Never force-push `main`.
 
-1. Open the public demo and verify `WhatsApp Contact Admin` and `ຕັ້ງຄ່າຮັບເງິນ` are visible.
-2. Verify the settings form retains only local demo values in browser storage.
-3. Verify the WhatsApp action uses `https://wa.me/<international-number>?text=<encoded-message>` only after a number is configured.
-4. Verify no payment, bank, D1, Workers, or production API call is made.
-5. Keep Sales Portal, POS Walk-in, online-sales mode, Invoice Preview, role buttons, and DEMO/PREVIEW safety wording intact.
-6. Do not touch private source `main`/`staging`, Cloudflare Workers, D1, real customer data, or payment systems unless a separate manager authorization explicitly changes the scope.
-7. Never force-push `main`.
+## Next task for the team
 
-## Handoff note
+If WhatsApp Contact Admin is still required, add it inside the existing company-settings page and its existing customer preview/payment section. Reuse the existing page/card and visual language; do not create a fixed-position overlay. Store only demo values in local browser storage and require a manager-supplied international WhatsApp number before generating a `wa.me` link.
 
-The Team Board write was previously blocked by missing Google Workspace write credentials. If credentials become available, update the T12 row with the latest commit, Pages run URL, live URL, and the fact that the payment/contact feature is demo-only pending manager-supplied real values.
+Acceptance checks:
+
+1. Super Admin can open the existing company-settings entry.
+2. Company receiving details remain in that existing page.
+3. No duplicate floating settings/contact controls appear.
+4. Customer preview keeps the DEMO/PREVIEW and NO PAYMENT safety wording.
+5. No production, D1, Workers, bank, or payment requests occur.
+6. Report the exact commit, Pages run, live URL, screenshots, and any missing manager-supplied data.
+
+## Board note
+
+The Team Board write was previously blocked by missing Google Workspace write credentials. If credentials become available, update T12 with the correction commit, Pages run, live URL, and the fact that all payment settings remain demo-only pending manager-supplied values.
