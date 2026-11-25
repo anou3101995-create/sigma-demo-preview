@@ -20,5 +20,59 @@
   </head>
   <body><style>#sigma-source-preview-banner{position:relative;z-index:1200;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:8px 12px;background:#132338;color:#fff;font:600 12px/1.35 system-ui,sans-serif;border-bottom:3px solid #44c58b}#sigma-source-preview-banner strong{color:#8af0bb;letter-spacing:.04em}#sigma-source-preview-banner button{border:1px solid #8291a6;border-radius:7px;background:#253952;color:#fff;padding:5px 9px;font:700 11px system-ui,sans-serif;cursor:pointer}#sigma-source-preview-banner button[aria-pressed="true"]{background:#13734f;border-color:#54d69b}@media(max-width:640px){#sigma-source-preview-banner{font-size:10px;gap:5px;padding:7px 6px}#sigma-source-preview-banner button{font-size:10px;padding:5px 7px}}</style><div id="sigma-source-preview-banner"><strong>ACTUAL SIGMA APP SOURCE · LOCAL PREVIEW</strong><span>local mock API only · read-only · production untouched</span><button type="button" data-preview-role="super">Super Admin</button><button type="button" data-preview-role="admin">Admin</button><button type="button" data-preview-role="sales">Sales</button><button type="button" data-preview-role="itsupport">IT Support</button><button type="button" data-preview-role="customer">Customer / Marketplace</button></div><script>(()=>{const demoUsers={super:{"id":910001,"name":"Preview Super Admin","username":"preview-super","email":"preview-super@example.invalid","role":"super","phone":"0200000000"},admin:{"id":910003,"name":"Preview Admin","username":"preview-admin","email":"preview-admin@example.invalid","role":"admin","phone":"0200000002"},sales:{"id":910004,"name":"Preview Sales","username":"preview-sales","email":"preview-sales@example.invalid","role":"sales","phone":"0200000003"},itsupport:{"id":910005,"name":"Preview IT Support","username":"preview-itsupport","email":"preview-itsupport@example.invalid","role":"itsupport","phone":"0200000004"},customer:{"id":910002,"name":"Preview Customer","username":"preview-customer","email":"preview-customer@example.invalid","role":"customer","phone":"0200000001","address":"Demo address"}};const u=r=>demoUsers[r]||demoUsers.super;const page=r=>r==='customer'?'marketplace':r;const a=r=>{localStorage.setItem('sigma_preview_role',r);localStorage.setItem('sigma_user',JSON.stringify(u(r)));localStorage.setItem('sigma_role',r);localStorage.setItem('sigma_page',page(r));sessionStorage.setItem('sigma_session_token','preview-'+r+'-read-only');location.reload()};const r=localStorage.getItem('sigma_preview_role')||'super';localStorage.setItem('sigma_user',JSON.stringify(u(r)));localStorage.setItem('sigma_role',r);localStorage.setItem('sigma_page',page(r));sessionStorage.setItem('sigma_session_token','preview-'+r+'-read-only');addEventListener('DOMContentLoaded',()=>document.querySelectorAll('[data-preview-role]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.previewRole===r));b.onclick=()=>a(b.dataset.previewRole)}))})()</script>
     <div id="root"></div>
+<style>
+#sigma-demo-contact{position:fixed;right:18px;bottom:18px;z-index:1400;display:flex;gap:8px;align-items:center;font:600 12px/1.3 system-ui,sans-serif}
+#sigma-demo-contact button{border:1px solid #6ee7b7;border-radius:999px;background:#064e3b;color:#ecfdf5;padding:10px 14px;box-shadow:0 8px 22px #0003;cursor:pointer}
+#sigma-demo-contact button.secondary{border-color:#93c5fd;background:#1e3a8a;color:#eff6ff}
+#sigma-demo-settings{position:fixed;right:18px;bottom:70px;z-index:1401;width:min(390px,calc(100vw - 36px));max-height:calc(100vh - 100px);overflow:auto;padding:18px;border:1px solid #93c5fd;border-radius:16px;background:#f8fafc;color:#0f172a;box-shadow:0 18px 50px #0005;font:13px/1.45 system-ui,sans-serif}
+#sigma-demo-settings[hidden]{display:none}
+#sigma-demo-settings h2{margin:0 0 4px;font-size:17px}
+#sigma-demo-settings p{margin:6px 0 12px;color:#475569}
+#sigma-demo-settings label{display:block;margin:9px 0 4px;font-weight:700}
+#sigma-demo-settings input,#sigma-demo-settings textarea{box-sizing:border-box;width:100%;border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:8px;font:inherit}
+#sigma-demo-settings textarea{min-height:66px;resize:vertical}
+#sigma-demo-settings .actions{display:flex;gap:8px;margin-top:14px}
+#sigma-demo-settings .actions button{border:0;border-radius:8px;padding:9px 12px;cursor:pointer;font-weight:700}
+#sigma-demo-settings .save{background:#2563eb;color:#fff}.close{background:#e2e8f0;color:#0f172a}
+#sigma-demo-payment{margin:12px 0;padding:12px;border-radius:12px;background:#e0f2fe;border:1px solid #7dd3fc}
+#sigma-demo-payment strong{display:block;margin-bottom:5px}
+@media(max-width:640px){#sigma-demo-contact{right:10px;bottom:10px;left:10px;justify-content:flex-end}#sigma-demo-contact button{padding:9px 11px}}
+</style>
+<div id="sigma-demo-contact" aria-label="Demo contact controls">
+  <button type="button" class="secondary" id="sigma-demo-settings-open">ຕັ້ງຄ່າຮັບເງິນ</button>
+  <button type="button" id="sigma-demo-contact-admin">WhatsApp Contact Admin</button>
+</div>
+<section id="sigma-demo-settings" hidden aria-label="Demo payment settings">
+  <h2>ຕັ້ງຄ່າຂໍ້ມູນຮັບເງິນ</h2>
+  <p><strong>DEMO ONLY:</strong> ຂໍ້ມູນນີ້ບັນທຶກຢູ່ໃນ browser/localStorage ເທົ່ານັ້ນ. ບໍ່ມີການເຊື່ອມທະນາຄານ ຫຼືຮັບ payment ຈິງ.</p>
+  <div id="sigma-demo-payment"><strong>ຂໍ້ຄວາມ Contact Admin</strong><span id="sigma-demo-message-preview"></span></div>
+  <label for="sigma-company-phone">ໂທຕິດຕໍ່ບໍລິສັດ</label>
+  <input id="sigma-company-phone" inputmode="tel" placeholder="ເຊັ່ນ 020 xxxx xxxx" />
+  <label for="sigma-whatsapp">WhatsApp Contact Admin (ຮູບແບບສາກົນ)</label>
+  <input id="sigma-whatsapp" inputmode="tel" placeholder="ເຊັ່ນ 85620xxxxxxx" />
+  <label for="sigma-bank-name">ຊື່ທະນາຄານ</label>
+  <input id="sigma-bank-name" placeholder="ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ" />
+  <label for="sigma-account-name">ຊື່ບັນຊີ</label>
+  <input id="sigma-account-name" placeholder="ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ" />
+  <label for="sigma-account-number">ເລກບັນຊີ</label>
+  <input id="sigma-account-number" placeholder="ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ" />
+  <label for="sigma-payment-message">ຂໍ້ຄວາມ Contact Admin</label>
+  <textarea id="sigma-payment-message">ສະບາຍດີ ຫາກທ່ານມີຄຳຖາມ ສາມາດຕິດຕໍ່ຜູ້ດູແລລະບົບໄດ້ເລີຍ.</textarea>
+  <div class="actions"><button type="button" class="save" id="sigma-demo-settings-save">ບັນທຶກໃນ Demo</button><button type="button" class="close" id="sigma-demo-settings-close">ປິດ</button></div>
+</section>
+<script>
+(()=>{
+  const key='sigma_demo_payment_settings';
+  const defaults={companyPhone:'',whatsapp:'',bankName:'',accountName:'',accountNumber:'',message:'ສະບາຍດີ ຫາກທ່ານມີຄຳຖາມ ສາມາດຕິດຕໍ່ຜູ້ດູແລລະບົບໄດ້ເລີຍ.'};
+  const get=()=>{try{return {...defaults,...JSON.parse(localStorage.getItem(key)||'{}')}}catch{return {...defaults}}};
+  const $=id=>document.getElementById(id); const fields=['companyPhone','whatsapp','bankName','accountName','accountNumber','message'];
+  const load=()=>{const s=get();fields.forEach(k=>{const el=$('sigma-'+(k==='message'?'payment-message':k));if(el)el.value=s[k]||''});$('sigma-demo-message-preview').textContent=s.message};
+  const save=()=>{const s={};fields.forEach(k=>{const el=$('sigma-'+(k==='message'?'payment-message':k));s[k]=(el.value||'').trim()});localStorage.setItem(key,JSON.stringify(s));$('sigma-demo-message-preview').textContent=s.message;alert('ບັນທຶກໄວ້ໃນ browser demo ແລ້ວ');};
+  $('sigma-demo-settings-open').onclick=()=>{$('sigma-demo-settings').hidden=false;load()}; $('sigma-demo-settings-close').onclick=()=>{$('sigma-demo-settings').hidden=true}; $('sigma-demo-settings-save').onclick=save;
+  $('sigma-demo-contact-admin').onclick=()=>{const s=get(); const n=(s.whatsapp||'').replace(/\D/g,''); if(!n){$('sigma-demo-settings').hidden=false;load();alert('ກະລຸນາໃສ່ເບີ WhatsApp Contact Admin ກ່ອນ');return} const text=encodeURIComponent(s.message||defaults.message); window.open('https://wa.me/'+n+'?text='+text,'_blank','noopener,noreferrer');};
+  load();
+})();
+</script>
+
   </body>
 </html>
