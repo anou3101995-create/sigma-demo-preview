@@ -5,7 +5,7 @@
   const getNumber = () => String(localStorage.getItem(STORAGE_KEY) || '').replace(/\D/g, '');
 
   function findSettingsHeading() {
-    return [...document.querySelectorAll('*')].find((node) => node.children.length === 0 && node.textContent.trim() === settingsHeading);
+    return [...document.querySelectorAll('*')].find((node) => node.children.length <= 1 && node.textContent.trim() === settingsHeading);
   }
 
   function mountWhatsAppField() {
