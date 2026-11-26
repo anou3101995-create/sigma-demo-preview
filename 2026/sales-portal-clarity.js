@@ -2,16 +2,60 @@
   const style = document.createElement('style');
   style.dataset.sigmaSalesClarity = 'true';
   style.textContent = `
-    .sales-portal { color: #0f172a; }
+    /* High-contrast light palette: no pink accents in Sales Portal or marketplace. */
+    .sales-portal {
+      color: #0f172a;
+      --accent-violet: #0f4c81 !important;
+      --accent-violet-text: #0f4c81 !important;
+      --accent-purple: #0f4c81 !important;
+      --accent-green: #0f766e !important;
+      --accent-green-text: #0f766e !important;
+      --marketplace-contrast-text: #0f172a !important;
+      --marketplace-contrast-muted: #475569 !important;
+      --marketplace-contrast-border: #94a3b8 !important;
+      --marketplace-contrast-surface: #f8fafc !important;
+      --marketplace-contrast-violet: #0f4c81 !important;
+      --marketplace-contrast-price: #0f766e !important;
+    }
     .sales-portal h2, .sales-portal h3, .sales-portal .card-title,
     .sales-portal .section-label, .sales-portal label { color: #111827 !important; }
     .sales-portal p, .sales-portal .muted, .sales-portal .text-muted,
     .sales-portal .role-header p { color: #334155 !important; }
-    .sales-portal input, .sales-portal select { color: #111827 !important; background: #ffffff !important; }
-    .sales-portal input::placeholder { color: #64748b !important; opacity: 1; }
-    .sales-portal .btn-ghost { color: #1e293b !important; border-color: #94a3b8 !important; }
-    .sales-portal .card { border-color: #94a3b8; }
+    .sales-portal input, .sales-portal select, .sales-portal textarea {
+      color: #111827 !important; background: #ffffff !important; border-color: #64748b !important;
+    }
+    .sales-portal input::placeholder, .sales-portal textarea::placeholder { color: #64748b !important; opacity: 1; }
+    .sales-portal .btn-ghost { color: #1e293b !important; border-color: #64748b !important; background: #ffffff !important; }
+    .sales-portal .btn-super, .sales-portal .btn-primary { background: #0f4c81 !important; color: #ffffff !important; }
+    .sales-portal .card { border-color: #94a3b8 !important; box-shadow: 0 2px 8px rgba(15,23,42,.08); }
     .sales-portal [data-sigma-walkin-button] { min-height: 40px; font-weight: 800; letter-spacing: .01em; }
+
+    /* Print the open Sigma cart as a readable A4 sheet, not as a scaled full-app screenshot. */
+    @page { size: A4 portrait; margin: 8mm 10mm; }
+    @media print {
+      html, body { width: 210mm !important; min-height: 297mm !important; background: #fff !important; }
+      body { margin: 0 !important; padding: 0 !important; color: #111827 !important; }
+      body > *:not(#root), #root > *:not(.marketplace-cart-overlay) { display: none !important; }
+      .marketplace-cart-overlay {
+        position: static !important; inset: auto !important; display: block !important;
+        width: 190mm !important; min-height: 277mm !important; background: #fff !important;
+        backdrop-filter: none !important; overflow: visible !important;
+      }
+      .marketplace-cart-drawer {
+        width: 190mm !important; max-width: none !important; min-height: 277mm !important;
+        height: auto !important; background: #fff !important; color: #111827 !important;
+        border: 1px solid #cbd5e1 !important; box-shadow: none !important; animation: none !important;
+      }
+      .marketplace-cart-header { padding: 8mm !important; border-bottom: 2px solid #0f4c81 !important; }
+      .marketplace-cart-title, .marketplace-cart-header-icon { color: #0f4c81 !important; }
+      .marketplace-cart-items { overflow: visible !important; padding: 6mm 8mm !important; flex: none !important; }
+      .marketplace-cart-item-row { border-bottom: 1px solid #cbd5e1 !important; break-inside: avoid; }
+      .marketplace-cart-item-details > div, .marketplace-cart-item-meta { color: #334155 !important; }
+      .marketplace-cart-footer { padding: 6mm 8mm !important; background: #f8fafc !important; border-top: 2px solid #94a3b8 !important; }
+      .marketplace-cart-close, .marketplace-cart-item-controls, .marketplace-cart-footer button,
+      .marketplace-cart-overlay button[aria-label], .marketplace-floating-action, .no-print { display: none !important; }
+      .marketplace-cart-item-image { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
   `;
   document.head.appendChild(style);
 })();
