@@ -12,6 +12,16 @@ Repository:
 
 https://github.com/anou3101995-create/sigma-demo-preview
 
+## Latest Sales Portal update
+
+The public `/2026/` Sales Portal now has clearer light-theme text and borders in the POS screen, plus a direct `ເລືອກ ລູກຄ້າທົ່ວໄປ (Walk-in)` action in POS Walk-in step 2. The action uses the existing customer state and updates the Invoice Preview to `ລູກຄ້າທົ່ວໄປ (Walk-in)` with `#WALK-IN`; it does not create a production customer or payment.
+
+- `51a10b7` — improve Sales Portal readability and add direct Walk-in selection.
+- `9480ed0` — refresh the public bundle asset so Pages clients receive the updated UI.
+- Successful Pages run: `45790170382` — https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45790170382
+
+Live verification confirmed the button is visible, clicking it selects Walk-in, and the Invoice Preview updates.
+
 ## Current public-demo state
 
 The `/2026/` demo is the verified Sales Portal build from `feat/professional-sales-portal @ a348159753a9d3208023a88bd44309cc7cf0b0c1`, restored from the earlier public-demo state at `c00088d1d8aa112855b418f91af887f3b1c6912a` and then carrying two team fixes:
@@ -48,4 +58,4 @@ This is a synthetic browser demo only. No production Workers, D1, real customer 
 
 ## Copy-ready team/T12 note
 
-> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Latest public commits `8806966` and `d82870a` add and verify a WhatsApp Contact Admin field inside the existing Super Admin company receiving-payment settings page. The existing Contact Admin modal uses configured company phone for calls and configured WhatsApp for WhatsApp; blank WhatsApp no longer falls back to fake `2055555555`. Successful Pages run: https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45777754136 . No production Workers/D1/customer/payment systems were touched. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
+> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Latest Sales Portal release commits `51a10b7` and `9480ed0` improve POS readability and add a direct `ເລືອກ ລູກຄ້າທົ່ວໄປ (Walk-in)` action. Live verification confirms the button selects the existing Walk-in customer state and updates Invoice Preview; no production/customer/payment data was created or changed. Successful Pages run: https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45790170382 . The WhatsApp Contact Admin work remains in commits `8806966` and `d82870a`. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
