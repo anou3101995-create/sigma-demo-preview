@@ -18,9 +18,14 @@ The public `/2026/` Sales Portal now has clearer light-theme text and borders in
 
 - `51a10b7` — improve Sales Portal readability and add direct Walk-in selection.
 - `9480ed0` — refresh the public bundle asset so Pages clients receive the updated UI.
+- `f6eb8a3` — replace the remaining pink Sales Portal/cart accents with navy/teal, strengthen text/card/input/button contrast, and add an A4 print stylesheet for the open Sigma cart.
 - Successful Pages run: `45790170382` — https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45790170382
 
+- Successful Pages run for `f6eb8a3`: `45793515281` — https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45793515281
+
 Live verification confirmed the button is visible, clicking it selects Walk-in, and the Invoice Preview updates.
+
+Live verification for `f6eb8a3` confirmed the deployed HTML references `assets/index-sales-contrast-a4.js`, the deployed bundle has no remaining primary pink literals, and the cart print adapter is present with A4 portrait, 190mm content width, and 277mm minimum page content. The Customer / Marketplace cart rendered with a synthetic item and its `Export PDF` control remained available. The page still shows `PREVIEW ONLY - NO PAYMENT`.
 
 ## Current public-demo state
 
@@ -58,4 +63,4 @@ This is a synthetic browser demo only. No production Workers, D1, real customer 
 
 ## Copy-ready team/T12 note
 
-> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Latest Sales Portal release commits `51a10b7` and `9480ed0` improve POS readability and add a direct `ເລືອກ ລູກຄ້າທົ່ວໄປ (Walk-in)` action. Live verification confirms the button selects the existing Walk-in customer state and updates Invoice Preview; no production/customer/payment data was created or changed. Successful Pages run: https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45790170382 . The WhatsApp Contact Admin work remains in commits `8806966` and `d82870a`. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
+> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Latest Sales Portal release commit `f6eb8a3` removes the remaining pink primary accents, improves contrast, and makes the open Sigma cart print as a readable A4 portrait sheet; the deployed asset is `index-sales-contrast-a4.js`. Pages run: https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45793515281 . Existing Walk-in behavior and `PREVIEW ONLY - NO PAYMENT` remain intact; no production/customer/payment data was created or changed. The WhatsApp Contact Admin work remains in commits `8806966` and `d82870a`. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
