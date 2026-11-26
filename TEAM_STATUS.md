@@ -19,20 +19,33 @@ The `/2026/` demo is the verified Sales Portal build from `feat/professional-sal
 - `3dbd73b` — remove the duplicate role bar in the 2026 preview.
 - `3878eef` — fix demo-banner width behavior on desktop while keeping the mobile max width.
 
-The current main branch also contains the team-status note commit `bd424450fb166110f236675900b5ad42b927b904` after safe rebase onto the team fixes. No force-push was used.
+The current public `main` also contains the verified demo-only Contact Admin settings adapter:
+
+- `8806966` — add a WhatsApp Contact Admin field inside the existing Super Admin company receiving-payment settings page.
+- `d82870a` — make the adapter detect the existing settings heading when it includes an icon.
+
+No force-push was used. The successful Pages run for the latest commit is `45777754136`:
+https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45777754136
 
 ## What the demo contains
 
-The live preview has the DEMO/PREVIEW safety banner, browser-local mock data, five role controls, and the Sales Portal with POS Walk-in, online-sales mode, and Invoice Preview. The existing Super Admin company-settings entry is `ຕັ້ງຄ່າບັນຊີບໍລິສັດ`; its receiving-payment section contains company name, BCEL One account, address, company phone, QR upload, and Save Settings. The customer payment preview is marked `PREVIEW ONLY - NO PAYMENT`.
+The live preview has the DEMO/PREVIEW safety banner, browser-local mock data, five role controls, and the Sales Portal with POS Walk-in, online-sales mode, and Invoice Preview. The existing Super Admin company-settings entry is `ຕັ້ງຄ່າບັນຊີບໍລິສັດ`; its receiving-payment section contains company name, BCEL One account, address, company phone, QR upload, Save Settings, and the new `WhatsApp Contact Admin (International)` field. The customer payment preview is marked `PREVIEW ONLY - NO PAYMENT`.
 
-## Scope and safety
-
-This is a synthetic browser demo only. No production Workers, D1, real customer records, bank connection, or payment processing was changed. The existing Super Admin company-settings page is the source of truth; do not add another floating settings/contact overlay, and do not invent real bank, account, QR, or WhatsApp values. Never force-push `main`.
+The WhatsApp value is intentionally blank by default and is stored only in this browser demo's localStorage. When configured, the existing Contact Admin modal keeps the company phone for the phone action and uses the configured WhatsApp number for its WhatsApp link. When blank, the WhatsApp action does not use the old fake fallback number and instead asks the demo user to configure it.
 
 ## Verification status
 
-The live demo was checked after rollback and the existing Super Admin dashboard plus company-settings entry were visible. The full five-role, mobile-width, console, and network action-item audit remains a separate verification task; report each role and viewport result only after it is actually checked.
+Verified live after Pages run `45777754136`:
+
+- Existing Super Admin company receiving-payment settings page shows the new WhatsApp field; no second settings page or new floating control was added.
+- A demo-only configured value `8562099999999` was used for functional verification; it produced `https://wa.me/8562099999999` in the existing Contact Admin modal. No real company contact value was committed.
+- Existing Customer / Marketplace Contact Admin control and modal remain in place.
+- The full five-role, mobile-width, console, and network action-item audit remains a separate verification task; report each role and viewport result only after it is actually checked.
+
+## Scope and safety
+
+This is a synthetic browser demo only. No production Workers, D1, real customer records, bank connection, or payment processing was changed. The existing Super Admin company-settings page is the source of truth; do not add another floating settings/contact overlay, and do not invent real bank, account, QR, phone, or WhatsApp values. Never force-push `main`.
 
 ## Copy-ready team/T12 note
 
-> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . The verified Sales Portal content was restored to the `c00088d` state, then team fixes `3dbd73b` (remove duplicate role bar) and `3878eef` (desktop banner width) were retained. Current team-status commit before this reference correction was `bd424450fb166110f236675900b5ad42b927b904`; the latest status-note commit is recorded by Git history after this edit. Existing Super Admin company receiving-payment settings page remains the source of truth. No production Workers/D1/customer/payment systems were touched. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
+> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Latest public commits `8806966` and `d82870a` add and verify a WhatsApp Contact Admin field inside the existing Super Admin company receiving-payment settings page. The existing Contact Admin modal uses configured company phone for calls and configured WhatsApp for WhatsApp; blank WhatsApp no longer falls back to fake `2055555555`. Successful Pages run: https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45777754136 . No production Workers/D1/customer/payment systems were touched. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
