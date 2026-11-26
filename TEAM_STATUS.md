@@ -14,33 +14,25 @@ https://github.com/anou3101995-create/sigma-demo-preview
 
 ## Current public-demo state
 
-- `/2026/` content is restored to the verified Sales Portal build from `feat/professional-sales-portal @ a348159753a9d3208023a88bd44309cc7cf0b0c1`.
-- The intended restored tree is the earlier public-demo state at `c00088d1d8aa112855b418f91af887f3b1c6912a`.
-- Rollback was performed with normal revert commits; no force-push was used.
-- Rollback head: `c0124b080486bd07bfdf3419638c7e52132fd501`.
-- Latest rollback Pages run: `45556942761` — Success.
+The `/2026/` demo is the verified Sales Portal build from `feat/professional-sales-portal @ a348159753a9d3208023a88bd44309cc7cf0b0c1`, restored from the earlier public-demo state at `c00088d1d8aa112855b418f91af887f3b1c6912a` and then carrying two team fixes:
+
+- `3dbd73b` — remove the duplicate role bar in the 2026 preview.
+- `3878eef` — fix demo-banner width behavior on desktop while keeping the mobile max width.
+
+The current main branch also contains the team-status note commit `bd424450fb166110f236675900b5ad42b927b904` after safe rebase onto the team fixes. No force-push was used.
 
 ## What the demo contains
 
-- DEMO/PREVIEW safety banner and browser-local mock data.
-- Role buttons: Super Admin, Admin, Sales, IT Support, Customer / Marketplace.
-- Sales Portal with POS Walk-in, online-sales mode, and Invoice Preview.
-- Existing Super Admin company settings page: `ຕັ້ງຄ່າບັນຊີບໍລິສັດ`.
-- Existing receiving-payment settings section with company name, BCEL One account, address, company phone, QR upload, and Save Settings.
-- Customer payment preview marked `PREVIEW ONLY - NO PAYMENT`.
+The live preview has the DEMO/PREVIEW safety banner, browser-local mock data, five role controls, and the Sales Portal with POS Walk-in, online-sales mode, and Invoice Preview. The existing Super Admin company-settings entry is `ຕັ້ງຄ່າບັນຊີບໍລິສັດ`; its receiving-payment section contains company name, BCEL One account, address, company phone, QR upload, and Save Settings. The customer payment preview is marked `PREVIEW ONLY - NO PAYMENT`.
 
 ## Scope and safety
 
-- This is a synthetic browser demo only.
-- No production Workers, D1, real customer records, bank connection, or payment processing was changed.
-- Do not add another floating settings/contact overlay; the company payment settings already belong in the existing Super Admin page.
-- Do not invent real bank, account, QR, or WhatsApp values.
-- Do not force-push `main`.
+This is a synthetic browser demo only. No production Workers, D1, real customer records, bank connection, or payment processing was changed. The existing Super Admin company-settings page is the source of truth; do not add another floating settings/contact overlay, and do not invent real bank, account, QR, or WhatsApp values. Never force-push `main`.
 
 ## Verification status
 
-The live demo was checked after rollback and the existing Super Admin dashboard plus company-settings entry were visible. The full five-role/mobile/network action-item audit remains a separate verification task; report each role and viewport result only after it is actually checked.
+The live demo was checked after rollback and the existing Super Admin dashboard plus company-settings entry were visible. The full five-role, mobile-width, console, and network action-item audit remains a separate verification task; report each role and viewport result only after it is actually checked.
 
 ## Copy-ready team/T12 note
 
-> Public demo restored to the verified Sales Portal tree (`c00088d` content) via normal rollback commits. Latest rollback head `c0124b0`; Pages run `45556942761` succeeded. Live demo: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Existing Super Admin company receiving-payment settings page remains the source of truth. No production Workers/D1/customer/payment systems were touched. Full five-role, mobile-width, console, and network audit is still pending/being tracked separately.
+> Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . The verified Sales Portal content was restored to the `c00088d` state, then team fixes `3dbd73b` (remove duplicate role bar) and `3878eef` (desktop banner width) were retained. Current team-status commit: `bd424450fb166110f236675900b5ad42b927b904`. Existing Super Admin company receiving-payment settings page remains the source of truth. No production Workers/D1/customer/payment systems were touched. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
