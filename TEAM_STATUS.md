@@ -64,3 +64,8 @@ This is a synthetic browser demo only. No production Workers, D1, real customer 
 ## Copy-ready team/T12 note
 
 > Public demo live: https://anou3101995-create.github.io/sigma-demo-preview/2026/ . Latest Sales Portal release commit `f6eb8a3` removes the remaining pink primary accents, improves contrast, and makes the open Sigma cart print as a readable A4 portrait sheet; the deployed asset is `index-sales-contrast-a4.js`. Pages run: https://github.com/anou3101995-create/sigma-demo-preview/actions/runs/45793515281 . Existing Walk-in behavior and `PREVIEW ONLY - NO PAYMENT` remain intact; no production/customer/payment data was created or changed. The WhatsApp Contact Admin work remains in commits `8806966` and `d82870a`. Full five-role, mobile-width, console, and network audit is pending/being tracked separately.
+
+## Team Board
+| Task ID | Branch | PR | Status |
+|---|---|---|---|
+| T6 | `fix/cart-invoice-a4-contrast` | [#9](https://github.com/anou3101995-create/sigma-demo-preview/pull/9) | PR open — not merged; not deployed |

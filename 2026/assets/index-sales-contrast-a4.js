@@ -218,7 +218,7 @@ Error generating stack: `+e.message+`
     }
     @page {
       size: A4 portrait;
-      margin: 12mm 15mm;
+      margin: 10mm;
     }
     * {
       box-sizing: border-box;
@@ -231,7 +231,8 @@ Error generating stack: `+e.message+`
       color: #0f172a;
       line-height: 1.4;
       font-size: 13px;
-      padding: 24px;
+      padding: 0;
+      width: 100%;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -277,30 +278,36 @@ Error generating stack: `+e.message+`
       .no-print { display: none !important; }
     }
     .invoice-card {
-      max-width: 800px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: none;
+      min-height: 277mm;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
     }
     .header-table {
       width: 100%;
-      border-bottom: 2px solid #0f172a;
-      padding-bottom: 14px;
+      background: #0f172a;
+      border-bottom: 0;
+      border-radius: 8px;
+      padding: 14px 16px;
       margin-bottom: 18px;
     }
     .company-title {
       font-size: 22px;
       font-weight: 800;
-      color: #0f172a;
+      color: #ffffff;
       letter-spacing: -0.3px;
     }
     .company-sub {
       font-size: 12px;
-      color: #475569;
+      color: #e2e8f0;
       margin-top: 3px;
     }
     .doc-badge {
       font-size: 15px;
       font-weight: 800;
-      color: #0f172a;
+      color: #ffffff;
       text-transform: uppercase;
       margin-top: 8px;
     }
@@ -312,7 +319,7 @@ Error generating stack: `+e.message+`
     }
     .meta-box {
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #64748b;
       border-radius: 10px;
       padding: 12px 14px;
       font-size: 12.5px;
@@ -338,8 +345,8 @@ Error generating stack: `+e.message+`
       margin-bottom: 20px;
     }
     .items-table th {
-      background: #f1f5f9;
-      color: #0f172a;
+      background: #1e293b;
+      color: #ffffff;
       font-weight: 700;
       font-size: 12px;
       padding: 10px 12px;
@@ -348,7 +355,7 @@ Error generating stack: `+e.message+`
     }
     .items-table td {
       padding: 10px 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #64748b;
       font-size: 12.5px;
       vertical-align: middle;
     }
@@ -360,7 +367,7 @@ Error generating stack: `+e.message+`
     .totals-box {
       width: 320px;
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #64748b;
       border-radius: 10px;
       padding: 14px 16px;
     }
@@ -377,6 +384,8 @@ Error generating stack: `+e.message+`
       padding-top: 8px;
       margin-top: 8px;
       border-top: 2px solid #0f172a;
+      background: #e2e8f0;
+      padding: 10px 8px 8px;
       font-size: 17px;
       font-weight: 800;
       color: #0f172a;
@@ -404,7 +413,7 @@ Error generating stack: `+e.message+`
       color: #475569;
     }
     .footer-note {
-      margin-top: 30px;
+      margin-top: auto;
       text-align: center;
       font-size: 11px;
       color: #475569;
@@ -483,7 +492,22 @@ Error generating stack: `+e.message+`
       .signatures-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 28px; }
       .sig-title { margin-bottom: 22px; }
     }
-  </style>
+    .header-table .company-title,
+    .header-table .company-sub,
+    .header-table .doc-badge,
+    .header-table td div,
+    .header-table td strong { color: #ffffff !important; }
+    .items-table th,
+    .items-table td { border-color: #64748b; }
+    .items-table th:nth-child(3),
+    .items-table th:nth-child(4),
+    .items-table th:nth-child(5),
+    .items-table td:nth-child(3),
+    .items-table td:nth-child(4),
+    .items-table td:nth-child(5) { text-align: right; }
+    .items-table th:nth-child(3) { text-align: center; }
+    .totals-box { border-color: #64748b; }
+</style>
 </head>
 <body>
 
