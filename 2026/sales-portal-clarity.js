@@ -30,6 +30,23 @@
     .sales-portal .card { border-color: #94a3b8 !important; box-shadow: 0 2px 8px rgba(15,23,42,.08); }
     .sales-portal [data-sigma-walkin-button] { min-height: 40px; font-weight: 800; letter-spacing: .01em; }
 
+    /* Keep the invoice preview readable on screen instead of relying on dim-on-dark inline colors. */
+    .marketplace-cart-invoice,
+    .online-checkout-invoice {
+      color: #0f172a !important;
+      background: #ffffff !important;
+      border: 1px solid #64748b !important;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, .12) !important;
+    }
+    .marketplace-cart-invoice [style*="color"],
+    .online-checkout-invoice [style*="color"] { color: #0f172a !important; }
+    .marketplace-cart-invoice strong,
+    .online-checkout-invoice strong { color: #0f172a !important; }
+    .marketplace-cart-invoice .divider,
+    .online-checkout-invoice .divider { background: #94a3b8 !important; }
+    .marketplace-cart-invoice button,
+    .online-checkout-invoice button { color: #0f172a !important; }
+
     /* Print the open Sigma cart as a readable A4 sheet, not as a scaled full-app screenshot. */
     @page { size: A4 portrait; margin: 8mm 10mm; }
     @media print {
@@ -51,6 +68,16 @@
       .marketplace-cart-items { overflow: visible !important; padding: 6mm 8mm !important; flex: none !important; }
       .marketplace-cart-item-row { border-bottom: 1px solid #cbd5e1 !important; break-inside: avoid; }
       .marketplace-cart-item-details > div, .marketplace-cart-item-meta { color: #334155 !important; }
+      .marketplace-cart-invoice {
+        background: #fff !important; color: #111827 !important; border: 1px solid #64748b !important;
+        box-shadow: none !important; break-inside: avoid;
+      }
+      .marketplace-cart-invoice [style*="color"] { color: #111827 !important; }
+      .marketplace-cart-invoice .marketplace-cart-payment { break-inside: avoid; }
+      .marketplace-cart-invoice .marketplace-cart-qr img {
+        width: 28mm !important; height: 28mm !important;
+        max-width: 28mm !important; max-height: 28mm !important;
+      }
       .marketplace-cart-footer { padding: 6mm 8mm !important; background: #f8fafc !important; border-top: 2px solid #94a3b8 !important; }
       .marketplace-cart-close, .marketplace-cart-item-controls, .marketplace-cart-footer button,
       .marketplace-cart-overlay button[aria-label], .marketplace-floating-action, .no-print { display: none !important; }
