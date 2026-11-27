@@ -30,6 +30,39 @@
     .sales-portal .card { border-color: #94a3b8 !important; box-shadow: 0 2px 8px rgba(15,23,42,.08); }
     .sales-portal [data-sigma-walkin-button] { min-height: 40px; font-weight: 800; letter-spacing: .01em; }
 
+    /* Cart rows share this component across Customer / Marketplace, checkout, and Sales Portal. */
+    .marketplace-cart-item-row {
+      color: #0f172a !important;
+      background: #f1f5f9 !important;
+      border-bottom-color: #94a3b8 !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-item-details > div:first-child {
+      color: #0f172a !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-item-meta,
+    .marketplace-cart-item-row .marketplace-cart-item-list-price {
+      color: #475569 !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-item-price {
+      color: #047857 !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-quantity {
+      background: #1f2937 !important;
+      border-color: #475569 !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-quantity button {
+      color: #ffffff !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-quantity input {
+      color: #ffffff !important;
+      background: #111827 !important;
+      border-color: #64748b !important;
+    }
+    .marketplace-cart-item-row .marketplace-cart-item-remove {
+      color: #b91c1c !important;
+      opacity: 1 !important;
+    }
+
     /* Keep the invoice preview readable on screen instead of relying on dim-on-dark inline colors. */
     .marketplace-cart-invoice,
     .online-checkout-invoice {
